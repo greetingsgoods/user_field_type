@@ -1,5 +1,7 @@
 <?php
 
+use \Bitrix\Main\EventManager;
+
 require __DIR__ . "/lang/" . LANGUAGE_ID . "/handlers.php";
 
 /*
@@ -8,6 +10,8 @@ require __DIR__ . "/lang/" . LANGUAGE_ID . "/handlers.php";
  * "Привязка к элементам инф. блоков с сортировкой"
  */
 
+$eventManager = EventManager::getInstance();
+AddEventHandler("main", "OnUserTypeBuildList", array("MyCurledType", "GetUserTypeDescription"));
 
 class MyCurledType extends CUserTypeIBlockElement
 {
@@ -17,7 +21,7 @@ class MyCurledType extends CUserTypeIBlockElement
 		return array(
 			"USER_TYPE_ID" => "c_local",
 			"CLASS_NAME" => "MyCurledType",
-			"DESCRIPTION" => GetMessage("USER_TYPE_IBEL_SORT_DESCRIPTION"),
+			"DESCRIPTION" => GetMessage("USER_TYPE_LOCAL_SORT_DESCRIPTION"),
 			"BASE_TYPE" => "int",
 		);
 	}
