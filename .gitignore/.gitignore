@@ -1,0 +1,16 @@
+# игнорируем папку битрикс
+bitrix/*
+
+# исключаем из игнора папки modules, components, php_interface
+!bitrix/modules/
+!bitrix/components/
+!bitrix/php_interface/
+#!bitrix/admin/
+#!bitrix/tools/
+!bitrix/composer-bx.json
+!bitrix/composer-bx.lock
+
+# различные файлы и папки
+example/
+tmp/
+about_puch.jpg
